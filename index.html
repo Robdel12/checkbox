@@ -29,36 +29,46 @@
     </label>
 
     <script>
-     let checkboxEl = document.getElementsByClassName('checkbox')[0];
-     let labelEl = document.getElementById(checkboxEl.getAttribute('aria-labelledby'));
+     class Checkbox {
+       constructor(checkboxEl, labelEl) {
+         this.checkbox = checkboxEl;
+         this.label = labelEl;
 
-     checkboxEl.onclick = function checkboxClick(event) {
-       let checkbox = event.target;
+         this.init();
+       }
 
-       toggleCheckbox(checkbox);
-     }
+       init() {
+         this.checkbox.onclick = this.toggleCheckbox.bind(this);
+         this.label.onclick = this.labelClick.bind(this);
+         this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
+       }
 
-     checkboxEl.onkeypress = function checkboxKeyPress(event) {
-       let checkbox = event.target;
-       let isEnterOrSpace = event.keyCode === 32 || event.keyCode === 13;
+       checkboxKeyPress(event) {
+         let isEnterOrSpace = event.keyCode === 32 || event.keyCode === 13;
 
-       if(isEnterOrSpace) {
-         toggleCheckbox(checkbox);
+         if(isEnterOrSpace) {
+           this.toggleCheckbox();
+         }
+       }
+
+       labelClick() {
+         this.toggleCheckbox();
+         this.checkbox.focus();
+       }
+
+       toggleCheckbox() {
+         let isCurrentlyChecked = this.checkbox.classList.contains('is-checked');
+         let ariaChecked = this.checkbox.getAttribute('aria-checked') === 'true';
+
+         this.checkbox.classList.toggle('is-checked', !isCurrentlyChecked);
+         this.checkbox.setAttribute('aria-checked', !ariaChecked);
        }
      }
 
-     labelEl.onclick = function labelClick(event) {
-       toggleCheckbox(checkboxEl);
-       checkboxEl.focus();
-     }
-
-     function toggleCheckbox(checkboxEl) {
-       let isCurrentlyChecked = checkboxEl.classList.contains('is-checked');
-       let ariaChecked = checkboxEl.getAttribute('aria-checked') === 'true';
-
-       checkboxEl.classList.toggle('is-checked', !isCurrentlyChecked);
-       checkboxEl.setAttribute('aria-checked', !ariaChecked);
-     }
+     let checkboxEl = document.getElementsByClassName('checkbox')[0];
+     let labelEl = document.getElementById(checkboxEl.getAttribute('aria-labelledby'));
+     // init new checkbox
+     new Checkbox(checkboxEl, labelEl);
     </script>
   </body>
 </html>
