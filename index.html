@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Checkbox</title>
+    <style>
+     .checkbox {
+       width: 20px;
+       height: 20px;
+       border: 1px solid #ddd;
+       border-radius: 6px;
+       display: inline-block;
+       vertical-align: middle;
+     }
+
+     .is-checked {
+       background-color: #ddd;
+     }
+    </style>
+  </head>
+  <body>
+    <span tabindex="0"
+          id="checkbox"
+          class="checkbox"
+          role="checkbox"
+          aria-labelledby="checkboxLabel"
+          aria-checked="false">
+    </span>
+    <label id="checkboxLabel" class="label">
+      Isn't this neat?
+    </label>
+
+    <script>
+     let checkboxEl = document.getElementsByClassName('checkbox')[0];
+     let labelEl = document.getElementById(checkboxEl.getAttribute('aria-labelledby'));
+
+     checkboxEl.onclick = function checkboxClick(event) {
+       let checkbox = event.target;
+
+       toggleCheckbox(checkbox);
+     }
+
+     checkboxEl.onkeypress = function checkboxKeyPress(event) {
+       let checkbox = event.target;
+       let isEnterOrSpace = event.keyCode === 32 || event.keyCode === 13;
+
+       if(isEnterOrSpace) {
+         toggleCheckbox(checkbox);
+       }
+     }
+
+     labelEl.onclick = function labelClick(event) {
+       toggleCheckbox(checkboxEl);
+       checkboxEl.focus();
+     }
+
+     function toggleCheckbox(checkboxEl) {
+       let isCurrentlyChecked = checkboxEl.classList.contains('is-checked');
+       let ariaChecked = checkboxEl.getAttribute('aria-checked') === 'true';
+
+       checkboxEl.classList.toggle('is-checked', !isCurrentlyChecked);
+       checkboxEl.setAttribute('aria-checked', !ariaChecked);
+     }
+    </script>
+  </body>
+</html>
