@@ -10,6 +10,7 @@ class Checkbox {
     this.checkbox.onclick = this.toggleCheckbox.bind(this);
     this.label.onclick = this.labelClick.bind(this);
     this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
+    this.checkbox.tabindex = 0;
   }
 
   checkboxKeyPress(event) {

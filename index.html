@@ -18,20 +18,17 @@
     </style>
   </head>
   <body>
-    <span tabindex="0"
-          id="checkbox"
-          class="checkbox"
+    <span class="checkbox"
           role="checkbox"
           aria-labelledby="checkboxLabel"
           aria-checked="false">
     </span>
-    <label id="checkboxLabel" class="label">
-      Isn't this neat?
-    </label>
+    <label id="checkboxLabel">Isn't this neat?</label>
 
     <script>
      let checkboxEl = document.getElementsByClassName('checkbox')[0];
-     let labelEl = document.getElementById(checkboxEl.getAttribute('aria-labelledby'));
+     let labelEl = document.getElementById('checkboxLabel');
+
      // init new checkbox
      new Checkbox(checkboxEl, labelEl);
     </script>
