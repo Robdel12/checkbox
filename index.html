@@ -19,10 +19,7 @@
   <body>
     <span tabindex="0"
           id="checkbox"
-          class="checkbox"
-          role="checkbox"
-          aria-labelledby="checkboxLabel"
-          aria-checked="false">
+          class="checkbox">
     </span>
     <label id="checkboxLabel" class="label">
       Isn't this neat?
@@ -38,9 +35,16 @@
        }
 
        init() {
+         let accessibleNode = this.checkbox.accessibleNode;
+
          this.checkbox.onclick = this.toggleCheckbox.bind(this);
          this.label.onclick = this.labelClick.bind(this);
          this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
+
+         //apply accessibile attributes
+         accessibleNode.role = 'checkbox';
+         accessibleNode.checked = false;
+         accessibleNode.labeledBy = new AccessibleNodeList([this.label.accessibleNode]);
        }
 
        checkboxKeyPress(event) {
@@ -57,16 +61,16 @@
        }
 
        toggleCheckbox() {
-         let isCurrentlyChecked = this.checkbox.classList.contains('is-checked');
-         let ariaChecked = this.checkbox.getAttribute('aria-checked') === 'true';
+         let isCurrentlyChecked = this.checkbox.accessibleNode.checked === 'true';
 
          this.checkbox.classList.toggle('is-checked', !isCurrentlyChecked);
-         this.checkbox.setAttribute('aria-checked', !ariaChecked);
+         this.checkbox.accessibleNode.checked = !isCurrentlyChecked;
        }
      }
 
      let checkboxEl = document.getElementsByClassName('checkbox')[0];
-     let labelEl = document.getElementById(checkboxEl.getAttribute('aria-labelledby'));
+     let labelEl = document.getElementById('checkboxLabel');
+
      // init new checkbox
      new Checkbox(checkboxEl, labelEl);
     </script>
