@@ -14,8 +14,9 @@ class Checkbox {
     this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
 
     //apply accessibile attributes
-    accessibleNode.role = 'checkbox';
+    this.checkbox.tabIndex = 0;
     accessibleNode.checked = false;
+    accessibleNode.role = 'checkbox';
     accessibleNode.labeledBy = new AccessibleNodeList([this.label.accessibleNode]);
   }
 
