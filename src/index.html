@@ -1,7 +1,6 @@
 <html lang="en">
   <head>
     <title>Checkbox</title>
-    <script src="./checkbox.js"></script>
     <style>
      .checkbox {
        width: 20px;
@@ -33,19 +32,21 @@
     </label>
 
     <script>
-     let checkboxEl = document.getElementsByClassName('checkbox')[0];
-     let labelEl = document.getElementById('checkboxLabel');
+     window.onload = function() {
+       let checkboxEl = document.getElementsByClassName('checkbox')[0];
+       let labelEl = document.getElementById('checkboxLabel');
 
-     // init new checkbox
-     new Checkbox(checkboxEl, {
-       label: labelEl
-     });
+       // init new checkbox
+       new Checkbox(checkboxEl, {
+         label: labelEl
+       });
 
-     new Checkbox(document.getElementById('checkbox_2'), {
-       isChecked: true
-     });
+       new Checkbox(document.getElementById('checkbox_2'), {
+         isChecked: true
+       });
 
-     new Checkbox(document.getElementById('checkbox_3'));
+       new Checkbox(document.getElementById('checkbox_3'));
+     };
     </script>
   </body>
 </html>
