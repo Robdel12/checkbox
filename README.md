@@ -1,4 +1,4 @@
-# Checkbox.js
+# Checkbox.js [![CircleCI](https://circleci.com/gh/Robdel12/checkbox.svg?style=svg&circle-token=641acbeadd66ab804551bfc7f31b053e760f1b1b)](https://circleci.com/gh/Robdel12/checkbox)
 
 Checkbox.js aims to create a functional checkbox out of pretty much
 any HTML markup.
