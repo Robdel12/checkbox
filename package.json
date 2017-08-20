@@ -1,5 +1,5 @@
 {
-  "name": "checkbox",
+  "name": "checkboxjs",
   "version": "0.1.0",
   "description": "Create an accessibile checkbox out of pretty much any HTML markup",
   "main": "./src/checkbox.js",
