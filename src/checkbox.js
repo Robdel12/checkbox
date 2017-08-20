@@ -1,3 +1,10 @@
+/**
+ * Checkbox.js aims to create a functional (and accessibile) checkbox
+ * from almost any HTMLElement.
+ *
+ * @param { HTMLElement } checkboxEl
+ * @param { Object } options
+ */
 class Checkbox {
   constructor(checkboxEl, options = {}) {
     this.checkbox = checkboxEl;
@@ -25,6 +32,13 @@ class Checkbox {
     this.init(options);
   }
 
+  /**
+   * Try to find the associated label in the DOM if no label is passed
+   * in the constructor. If the label is found it will return that
+   * element. If nothing is found it will return false.
+   *
+   * @returns { HTMLElement || Boolean}
+   */
   searchForLabel() {
     // check the checkbox is nested inside of a label
     if (this.checkbox.parentNode.tagName.toUpperCase() === 'LABEL') {
@@ -38,6 +52,11 @@ class Checkbox {
     return false;
   }
 
+  /**
+   * Setup the custom checkbox with event listeners and its initial state.
+   *
+   * @param { Object } options - object of passed options from the constructor
+   */
   init(options) {
     this.checkbox.onclick = this.toggleCheckbox.bind(this);
     this.label.onclick = this.labelClick.bind(this);
@@ -47,6 +66,10 @@ class Checkbox {
     this.initA11y();
   }
 
+  /**
+   * Set up the proper accessibility roles for the custom checkbox.
+   *
+   */
   initA11y() {
     this.checkbox.setAttribute('tabindex', 0);
     this.checkbox.setAttribute('role', 'checkbox');
@@ -54,6 +77,11 @@ class Checkbox {
     this.checkbox.setAttribute('aria-checked', this.isChecked);
   }
 
+  /**
+   * Handle keyboard events on the checkbox.
+   *
+   * @param { DOM Event } event
+   */
   checkboxKeyPress(event) {
     let isEnterOrSpace = event.keyCode === 32 || event.keyCode === 13;
 
@@ -63,6 +91,14 @@ class Checkbox {
     }
   }
 
+  /**
+   * Handle clicking of the label.
+   *
+   * When clicking the label it should focus the checkbox and toggle
+   * the state.
+   *
+   * @param { DOM Event } event
+   */
   labelClick(event) {
     // If the click isn't on the label, don't do anything.
     if (event.target !== this.label) {
@@ -73,6 +109,11 @@ class Checkbox {
     this.checkbox.focus();
   }
 
+  /**
+   * Toggle the current state of the checkbox.
+   *
+   * @private
+   */
   toggleCheckbox() {
     this.checkbox.classList.toggle('is-checked', !this.isChecked);
     this.checkbox.setAttribute('aria-checked', !this.isChecked);
