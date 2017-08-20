@@ -66,7 +66,7 @@ class Checkbox {
   labelClick(event) {
     // If the click isn't on the label, don't do anything.
     if (event.target !== this.label) {
-      return false;
+      return;
     }
 
     this.toggleCheckbox();
