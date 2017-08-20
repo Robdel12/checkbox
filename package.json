@@ -1,8 +1,8 @@
 {
   "name": "checkbox",
   "version": "0.1.0",
-  "description": "Create an accessibile checkbox out of pretty much HTML markup",
-  "main": "checkbox.js",
+  "description": "Create an accessibile checkbox out of pretty much any HTML markup",
+  "main": "./src/checkbox.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "webpack-dev-server",
