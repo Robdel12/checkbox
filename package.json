@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/Robdel12/checkbox/issues"
   },
-  "homepage": "https://github.com/Robdel12/checkbox#readme",
+  "homepage": "https://robdel12.github.io/checkbox/",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
