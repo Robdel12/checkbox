@@ -38,12 +38,6 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#checkboxsearchforlabel'
-                        class='regular pre-open'>
-                        #searchForLabel
-                      </a></li>
-                      
-                      <li><a
                         href='#checkboxinit'
                         class='regular pre-open'>
                         #init
@@ -56,15 +50,9 @@
                       </a></li>
                       
                       <li><a
-                        href='#checkboxcheckboxkeypress'
+                        href='#checkboxtogglecheckbox'
                         class='regular pre-open'>
-                        #checkboxKeyPress
-                      </a></li>
-                      
-                      <li><a
-                        href='#checkboxlabelclick'
-                        class='regular pre-open'>
-                        #labelClick
+                        #toggleCheckbox
                       </a></li>
                       
                     </ul>
@@ -150,54 +138,6 @@ from almost any HTMLElement.</p>
   
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
-  
-    <div class='border-bottom' id='checkboxsearchforlabel'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>searchForLabel()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Try to find the associated label in the DOM if no label is passed
-in the constructor. If the label is found it will return that
-element. If nothing is found it will return false.</p>
-
-
-  <div class='pre p1 fill-light mt0'>searchForLabel()</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
   
     <div class='border-bottom' id='checkboxinit'>
       <div class="clearfix small pointer toggle-sibling">
@@ -305,11 +245,11 @@ element. If nothing is found it will return false.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='checkboxcheckboxkeypress'>
+    <div class='border-bottom' id='checkboxtogglecheckbox'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>checkboxKeyPress(event)</span>
+            <span class='code strong strong truncate'>toggleCheckbox()</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -317,71 +257,10 @@ element. If nothing is found it will return false.</p>
 
   
 
-  <p>Handle keyboard events on the checkbox.</p>
+  <p>Toggle the current state of the checkbox.</p>
 
 
-  <div class='pre p1 fill-light mt0'>checkboxKeyPress(event: any)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>event</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='checkboxlabelclick'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>labelClick(event)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>Handle clicking of the label.</p>
-<p>When clicking the label it should focus the checkbox and toggle
-the state.</p>
-
-
-  <div class='pre p1 fill-light mt0'>labelClick(event: any)</div>
+  <div class='pre p1 fill-light mt0'>toggleCheckbox()</div>
   
   
 
@@ -392,19 +271,6 @@ the state.</p>
   
   
 
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>event</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   

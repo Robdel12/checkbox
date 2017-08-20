@@ -38,6 +38,7 @@ class Checkbox {
    * element. If nothing is found it will return false.
    *
    * @returns { HTMLElement || Boolean}
+   * @private
    */
   searchForLabel() {
     // check the checkbox is nested inside of a label
@@ -81,6 +82,7 @@ class Checkbox {
    * Handle keyboard events on the checkbox.
    *
    * @param { DOM Event } event
+   * @private
    */
   checkboxKeyPress(event) {
     let isEnterOrSpace = event.keyCode === 32 || event.keyCode === 13;
@@ -98,6 +100,7 @@ class Checkbox {
    * the state.
    *
    * @param { DOM Event } event
+   * @private
    */
   labelClick(event) {
     // If the click isn't on the label, don't do anything.
@@ -112,7 +115,6 @@ class Checkbox {
   /**
    * Toggle the current state of the checkbox.
    *
-   * @private
    */
   toggleCheckbox() {
     this.checkbox.classList.toggle('is-checked', !this.isChecked);
