@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Checkbox</title>
+    <script src="./checkbox.js"></script>
+    <style>
+     .checkbox {
+       width: 20px;
+       height: 20px;
+       border: 1px solid #ddd;
+       border-radius: 6px;
+       display: inline-block;
+       vertical-align: middle;
+     }
+
+     .is-checked {
+       background-color: #ddd;
+     }
+     label {
+       user-select: none;
+     }
+    </style>
+  </head>
+  <body>
+    <span class="checkbox"></span>
+    <label id="checkboxLabel">Isn't this neat?</label>
+
+    <span id="checkbox_2" class="checkbox"></span>
+    <label for="checkbox_2">Not passed to constructor</label>
+
+    <label>
+      Nested
+      <span id="checkbox_3" class="checkbox"></span>
+    </label>
+
+    <script>
+     let checkboxEl = document.getElementsByClassName('checkbox')[0];
+     let labelEl = document.getElementById('checkboxLabel');
+
+     // init new checkbox
+     new Checkbox(checkboxEl, labelEl);
+     new Checkbox(document.getElementById('checkbox_2'));
+     new Checkbox(document.getElementById('checkbox_3'));
+    </script>
+  <script type="text/javascript" src="checkbox.js"></script></body>
+</html>
