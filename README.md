@@ -73,3 +73,22 @@ new Checkbox(document.getElementById('checkbox'), {
   isChecked: true
 });
 ```
+
+#### Programmatically change state
+
+If you store a reference to the checkbox when you instantiate it, you
+can call methods on that instance like `toggleCheckbox`. This allows
+you to toggle the checkbox from actions other than a click or keyboard
+event.
+
+``` html
+<label for="checkbox">Subscribe?</label>
+<span id="checkbox"></span>
+```
+
+``` javascript
+// init an unchecked checkbox
+let checkbox = new Checkbox(document.getElementById('checkbox'));
+
+checkbox.toggleCheckbox(); // toggles to checked
+```
