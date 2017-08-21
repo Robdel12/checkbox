@@ -7,19 +7,6 @@ would like. It gives you full control of the markup.
 
 ## Getting started
 
-Using checkbox.js is simple:
-
-``` javascript
-let checkbox = new Checkbox(HTMLElement);
-```
-
-This will create a checkbox out of that HTMLElement that you
-passed. Checkbox.js will try to find a `label` element in the DOM to
-associate with the checkbox. If it can't find a `label` it will throw
-an error. All checkboxes must have a label.
-
-### Simple example
-
 Given our HTML:
 
 ``` html
@@ -34,7 +21,12 @@ checkbox.js:
 new Checkbox(document.getElementById('checkbox'));
 ```
 
-This will change your span element to something like:
+This will create a checkbox out of that HTMLElement that you
+passed. Checkbox.js will try to find a `label` element in the DOM to
+associate with the checkbox. If it can't find a `label` it will throw
+an error. All checkboxes must have a label.
+
+What your checkbox should look like after using checkbox.js:
 
 ``` html
 <label for="checkbox" id="jsze4iuu8c">Subscribe?</label>

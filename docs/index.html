@@ -38,15 +38,27 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#checkboxinit'
+                        href='#checkboxcheckbox'
                         class='regular pre-open'>
-                        #init
+                        #checkbox
                       </a></li>
                       
                       <li><a
-                        href='#checkboxinita11y'
+                        href='#checkboxlabel'
                         class='regular pre-open'>
-                        #initA11y
+                        #label
+                      </a></li>
+                      
+                      <li><a
+                        href='#checkboxisnested'
+                        class='regular pre-open'>
+                        #isNested
+                      </a></li>
+                      
+                      <li><a
+                        href='#checkboxischecked'
+                        class='regular pre-open'>
+                        #isChecked
                       </a></li>
                       
                       <li><a
@@ -86,8 +98,25 @@
   </div>
   
 
-  <p>Checkbox.js aims to create a functional (and accessibile) checkbox
-from almost any HTMLElement.</p>
+  <p>Checkbox.js aims to create a functional checkbox out of pretty much
+any HTML markup. This allows you to style the checkbox any way you
+would like. It gives you full control of the markup.</p>
+<h2>Getting started</h2>
+<p>Given our HTML:</p>
+<pre class='hljs'><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checkbox"</span>&gt;</span>Subscribe?<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"checkbox"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></pre>
+<p>We can create a new checkbox out of a span by passing the element
+to checkbox.js:</p>
+<pre class='hljs'><span class="hljs-keyword">new</span> Checkbox(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'checkbox'</span>));</pre>
+<p>This will create a checkbox out of that HTMLElement that you
+passed. Checkbox.js will try to find a <code>label</code> element in the DOM
+to associate with the checkbox. If it can't find a <code>label</code> it will
+throw an error. All checkboxes must have a label.</p>
+<p>What your checkbox should look like after using checkbox.js:</p>
+<pre class='hljs'><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jsze4iuu8c"</span>&gt;</span>Subscribe?<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"checkbox"</span>
+  <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"jsze4iuu8c"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></pre>
+<p>Now you can style the checkbox to look how ever you want!</p>
 
 
   <div class='pre p1 fill-light mt0'>new Checkbox(checkboxEl: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTMLElement</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
@@ -139,11 +168,11 @@ from almost any HTMLElement.</p>
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='checkboxinit'>
+    <div class='border-bottom' id='checkboxcheckbox'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>init(options)</span>
+            <span class='code strong strong truncate'>checkbox</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -151,34 +180,20 @@ from almost any HTMLElement.</p>
 
   
 
-  <p>Setup the custom checkbox with event listeners and its initial state.</p>
+  <p>A reference to the checkbox HTMLElement in the DOM.</p>
 
 
-  <div class='pre p1 fill-light mt0'>init(options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
-
-  
-  
-  
-  
+  <div class='pre p1 fill-light mt0'>checkbox</div>
   
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    object of passed options from the constructor
+  
+  
+  
+  
+  
 
-          </div>
-          
-        </div>
-      
-    </div>
   
 
   
@@ -199,11 +214,11 @@ from almost any HTMLElement.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='checkboxinita11y'>
+    <div class='border-bottom' id='checkboxlabel'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>initA11y()</span>
+            <span class='code strong strong truncate'>label</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -211,10 +226,110 @@ from almost any HTMLElement.</p>
 
   
 
-  <p>Set up the proper accessibility roles for the custom checkbox.</p>
+  <p>A reference to the label HTMLElement in the DOM.</p>
 
 
-  <div class='pre p1 fill-light mt0'>initA11y()</div>
+  <div class='pre p1 fill-light mt0'>label</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkboxisnested'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isNested</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Determine if the checkbox is nested inside of a label.</p>
+
+
+  <div class='pre p1 fill-light mt0'>isNested</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkboxischecked'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isChecked</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Is the checkbox checked or not.</p>
+
+
+  <div class='pre p1 fill-light mt0'>isChecked</div>
   
   
 
@@ -260,7 +375,7 @@ from almost any HTMLElement.</p>
   <p>Toggle the current state of the checkbox.</p>
 
 
-  <div class='pre p1 fill-light mt0'>toggleCheckbox()</div>
+  <div class='pre p1 fill-light mt0'>toggleCheckbox(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
   
   
 
@@ -275,6 +390,14 @@ from almost any HTMLElement.</p>
 
   
 
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        isChecked - the new state of the checkbox
+
+      
+    
   
 
   
