@@ -185,6 +185,8 @@ class Checkbox {
   }
 }
 
-// lol
-window.Checkbox = Checkbox;
+if (process.env.NODE_ENV === 'production' || process.env.DEBUG === true) {
+  window.Checkbox = Checkbox;
+}
+
 export default Checkbox;
