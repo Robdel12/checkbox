@@ -121,7 +121,8 @@ class Checkbox {
     this.checkbox.onclick = this.toggleCheckbox.bind(this);
     this.label.onclick = this.labelClick.bind(this);
     this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
-    this.checkbox.classList.toggle('is-checked', this.isChecked);
+    this._toggleClass(this.checkbox.classList, 'is-checked', this.isChecked);
+    // this.checkbox.classList.toggle('is-checked', this.isChecked);
     this.initA11y();
   }
 
@@ -171,13 +172,23 @@ class Checkbox {
     this.checkbox.focus();
   }
 
+  // ie11 doesn't support classList.toggle..
+  _toggleClass(classList, className, isTrue) {
+    if (isTrue) {
+      classList.add(className);
+    } else {
+      classList.remove(className);
+    }
+  }
+
   /**
    * Toggle the current state of the checkbox.
    *
    * @returns { Boolean } isChecked - the new state of the checkbox
    */
   toggleCheckbox() {
-    this.checkbox.classList.toggle('is-checked', !this.isChecked);
+    // this.checkbox.classList.toggle('is-checked', !this.isChecked);
+    this._toggleClass(this.checkbox.classList, 'is-checked', !this.isChecked);
     this.checkbox.setAttribute('aria-checked', !this.isChecked);
     this.isChecked = !this.isChecked;
 

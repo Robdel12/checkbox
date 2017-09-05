@@ -18,19 +18,29 @@
      label {
        user-select: none;
      }
+
+     .breaker {
+       margin: 10px 0;
+     }
     </style>
   </head>
   <body>
-    <span class="checkbox"></span>
-    <label id="checkboxLabel">Isn't this neat?</label>
+    <div class="breaker">
+      <span class="checkbox"></span>
+      <label id="checkboxLabel">Basic Checkbox</label>
+    </div>
 
-    <span id="checkbox_2" class="checkbox"></span>
-    <label for="checkbox_2">Not passed to constructor</label>
+    <div class="breaker">
+      <span id="checkbox_2" class="checkbox"></span>
+      <label for="checkbox_2">Not passed to constructor</label>
+    </div>
 
-    <label>
-      Nested
-      <span id="checkbox_3" class="checkbox"></span>
-    </label>
+    <div class="breaker">
+      <label>
+        <span id="checkbox_3" class="checkbox"></span>
+        Nested Inside Label
+      </label>
+    </div>
 
     <script>
      window.onload = function() {
