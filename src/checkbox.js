@@ -122,7 +122,6 @@ class Checkbox {
     this.label.onclick = this.labelClick.bind(this);
     this.checkbox.onkeypress = this.checkboxKeyPress.bind(this);
     this._toggleClass(this.checkbox.classList, 'is-checked', this.isChecked);
-    // this.checkbox.classList.toggle('is-checked', this.isChecked);
     this.initA11y();
   }
 
@@ -172,7 +171,17 @@ class Checkbox {
     this.checkbox.focus();
   }
 
-  // ie11 doesn't support classList.toggle..
+  /**
+   * Toggle a class on an HTMLElements classList.
+   *
+   * Use this over `classList.toggle` since IE11 does not support the
+   * second argument to the `toggle` method.
+   *
+   * @param { HTMLElement.classList } classList - classList property
+   * of the element to toggle the class on
+   * @param { String } className - the class to toggle
+   * @param { Boolean } isTrue - true to apply the class, false to remove
+   */
   _toggleClass(classList, className, isTrue) {
     if (isTrue) {
       classList.add(className);
@@ -187,7 +196,6 @@ class Checkbox {
    * @returns { Boolean } isChecked - the new state of the checkbox
    */
   toggleCheckbox() {
-    // this.checkbox.classList.toggle('is-checked', !this.isChecked);
     this._toggleClass(this.checkbox.classList, 'is-checked', !this.isChecked);
     this.checkbox.setAttribute('aria-checked', !this.isChecked);
     this.isChecked = !this.isChecked;
