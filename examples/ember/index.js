@@ -19,6 +19,10 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
+    if (!this.get('checkbox')) {
+      return;
+    }
+
     if(this.get('checkbox').isChecked !== this.get('isChecked')) {
       this.get('checkbox').toggleCheckbox();
     }
