@@ -21,6 +21,7 @@ module.exports = {
   entry: './src/checkbox.js',
   output: {
     filename: 'checkbox.js',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, "dist")
   },
   devServer: {
